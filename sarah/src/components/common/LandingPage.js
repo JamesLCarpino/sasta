@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { TweenMax, Power3 } from "gsap";
 
 export default function LandingPage() {
-  let { wallOneMove, wallTwoMove, titleFadeUp } = useRef();
+  let { wallOneMove, wallTwoMove, titleFadeUp, buttonOneIn } = useRef();
 
   useEffect(() => {
     TweenMax.from(wallOneMove, 5, {
@@ -22,6 +22,10 @@ export default function LandingPage() {
     TweenMax.from(titleFadeUp, 6.5, {
       opacity: 0,
       y: 50,
+      ease: Power3.easeInOut,
+    });
+    TweenMax.from(buttonOneIn, 6.5, {
+      opacity: 0,
       ease: Power3.easeInOut,
     });
   }, []);
@@ -44,13 +48,23 @@ export default function LandingPage() {
           }}
         ></div>
       </div>
-      <h1
-        ref={(el) => {
-          titleFadeUp = el;
-        }}
-      >
-        SÁSTA
-      </h1>
+      <div className="title-wrapper">
+        <h1
+          ref={(el) => {
+            titleFadeUp = el;
+          }}
+        >
+          SÁSTA
+        </h1>
+        <button
+          className="btn draw-border"
+          ref={(el) => {
+            buttonOneIn = el;
+          }}
+        >
+          LETS GET STARTED
+        </button>
+      </div>
     </div>
   );
 }
