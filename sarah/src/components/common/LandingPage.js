@@ -2,7 +2,14 @@ import React, { useRef, useState, useEffect } from "react";
 import { TweenMax, Power3 } from "gsap";
 
 export default function LandingPage() {
-  let { wallOneMove, wallTwoMove, titleFadeUp, buttonOneIn } = useRef();
+  let {
+    wallOneMove,
+    wallTwoMove,
+    titleFadeUp,
+    buttonOneIn,
+    buttonTwoIn,
+    tagLine,
+  } = useRef();
 
   useEffect(() => {
     TweenMax.from(wallOneMove, 5, {
@@ -26,6 +33,19 @@ export default function LandingPage() {
     });
     TweenMax.from(buttonOneIn, 6.5, {
       opacity: 0,
+      x: -50,
+      ease: Power3.easeInOut,
+      delay: 0.05,
+    });
+    TweenMax.from(buttonTwoIn, 6.5, {
+      opacity: 0,
+      x: 50,
+      ease: Power3.easeInOut,
+      delay: 0.05,
+    });
+    TweenMax.from(tagLine, 5, {
+      opacity: 0,
+      x: -150,
       ease: Power3.easeInOut,
     });
   }, []);
@@ -56,14 +76,32 @@ export default function LandingPage() {
         >
           SÁSTA
         </h1>
-        <button
-          className="btn draw-border"
+        <p
+          className="tagLine"
           ref={(el) => {
-            buttonOneIn = el;
+            tagLine = el;
           }}
         >
-          LETS GET STARTED
-        </button>
+          Your next look starts with local creatives.
+        </p>
+        <div className="btn-wrapper">
+          <button
+            className="btn draw-border"
+            ref={(el) => {
+              buttonOneIn = el;
+            }}
+          >
+            Let's Get Started
+          </button>
+          <button
+            className="btn draw-border-two"
+            ref={(el) => {
+              buttonTwoIn = el;
+            }}
+          >
+            Register
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -5,26 +5,50 @@ body {
 .landing-container {
   display: flex;
   position: relative;
-  text-align: center;
+  //text-align: center;
   margin: 0.2%;
   height: 100vh;
 
-  h1 {
-    position: absolute;
-    left: 20%;
-    right: 23%;
-    top: 5%;
-    bottom: 40%;
-    color: #f5f0f6;
-    font-size: 8rem;
-    text-shadow: 1px 1px #f5f0f6;
-  }
   .title-wrapper {
     position: absolute;
     left: 20%;
     right: 23%;
-    top: 5%;
-    bottom: 40%;
+    top: 32%;
+
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    h1 {
+      // position: absolute;
+      // left: 20%;
+      // right: 23%;
+      // top: 5%;
+      // bottom: 25%;
+      color: #f5f0f6;
+      font-size: 10.2rem;
+      text-shadow: 1px 1px #f5f0f6;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 0;
+    }
+    .btn-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .tagLine {
+      // color: #f5f0f6;
+      color: #808782;
+      // color: #634133;
+      font-size: 1.75rem;
+      text-decoration: it;
+      margin: 0;
+      padding-bottom: 2%;
+    }
 
     @mixin btn-border-drawing(
       $color: #ccc,
@@ -91,6 +115,9 @@ body {
     .draw-border {
       @include btn-border-drawing(#f5f0f6, #f6ae2d, 4px, bottom, right);
     }
+    .draw-border-two {
+      @include btn-border-drawing(#f5f0f6, #0a2e36, 4px, bottom, right);
+    }
 
     //=== Button styling, semi-ignore
     .btn {
@@ -98,11 +125,11 @@ body {
       border: none;
       cursor: pointer;
       line-height: 1.5;
-      font: 700 1rem "Roboto Slab", sans-serif;
+      font: 1rem "Roboto Slab", sans-serif;
       padding: 1em 1em;
       letter-spacing: 0.05rem;
-      right: 15%;
-      top: 100%;
+      margin-left: 13%;
+      margin-right: 13%;
 
       &:focus {
         outline: 1px solid #f5f0f6;
