@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { TweenMax, Power3 } from "gsap";
 
 export default function LandingPage() {
@@ -10,6 +11,11 @@ export default function LandingPage() {
     buttonTwoIn,
     tagLine,
   } = useRef();
+  let history = useHistory();
+
+  let onClick = () => {
+    history.push("/register");
+  };
 
   useEffect(() => {
     TweenMax.from(wallOneMove, 5, {
@@ -94,6 +100,7 @@ export default function LandingPage() {
             Let's Get Started
           </button>
           <button
+            onClick={onClick}
             className="btn draw-border-two"
             ref={(el) => {
               buttonTwoIn = el;

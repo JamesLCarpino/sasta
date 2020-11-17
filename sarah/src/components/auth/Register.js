@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Register() {
-  return <h1 style={{ fontColor: "white" }}>REGISTER PAGE</h1>;
+  return (
+    <div className="register-container">
+      <h2>REGISTER</h2>
+    </div>
+  );
 }
