@@ -1,8 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { TweenMax, Power3 } from "gsap";
+import Modal from "react-bootstrap/Modal";
+
+import Register from "../auth/Register";
 
 export default function LandingPage() {
+  const [show, setShow] = useState(false);
   let {
     wallOneMove,
     wallTwoMove,
@@ -13,8 +17,16 @@ export default function LandingPage() {
   } = useRef();
   let history = useHistory();
 
-  let onClick = () => {
-    history.push("/register");
+  let showRegistration = () => {
+    setShow(true);
+  };
+
+  let onHide = () => {
+    setShow(false);
+  };
+
+  let getStarted = () => {
+    history.push("/getting-started");
   };
 
   useEffect(() => {
@@ -92,6 +104,7 @@ export default function LandingPage() {
         </p>
         <div className="btn-wrapper">
           <button
+            onClick={getStarted}
             className="btn draw-border"
             ref={(el) => {
               buttonOneIn = el;
@@ -100,7 +113,7 @@ export default function LandingPage() {
             Let's Get Started
           </button>
           <button
-            onClick={onClick}
+            onClick={showRegistration}
             className="btn draw-border-two"
             ref={(el) => {
               buttonTwoIn = el;
@@ -108,6 +121,15 @@ export default function LandingPage() {
           >
             Register
           </button>
+          <Modal
+            show={show}
+            onHide={onHide}
+            size="lg"
+            //aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Register></Register>
+          </Modal>
         </div>
       </div>
     </div>

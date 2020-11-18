@@ -2,6 +2,8 @@
 
 body {
   background: black;
+  height: 100vh;
+  margin: 0;
 }
 
 .landing-container {
@@ -134,7 +136,7 @@ body {
       margin-right: 13%;
 
       &:focus {
-        outline: 1px solid #f5f0f6;
+        outline: 1px solid #ff7575;
       }
     }
   }
@@ -178,13 +180,29 @@ body {
   height: 100vh;
   display: flex;
   background-color: #f6ae2d;
-  animation-name: slideIn;
-  animation-duration: 1s;
   display: flex;
 
   h2 {
     display: flex;
     justify-content: center;
     color: #0a2e36;
+  }
+}
+
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #0a2e36;
+
+  .form-wall {
+    height: 100vh;
+    transform: skewX(41deg);
+    background-color: #f6ae2d;
+    width: 52%;
+    height: 100vh;
+  }
+  .actual-form {
+    position: relative;
   }
 }
