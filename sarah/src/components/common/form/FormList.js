@@ -1,9 +1,16 @@
-import React, { useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useRef, useEffect, useState } from "react";
+import { useLocation, Route } from "react-router-dom";
 import { TweenMax, Power3 } from "gsap";
+import { useStateMachine, createStore } from "little-state-machine";
+import FormCheckboxes from "./FormCheckboxes";
+import FormName from "./FormName";
 
 export default function FormFile() {
   let { formAnim, moveStripe } = useRef();
+  const [formStep, setFormStep] = useState({
+    formName: true,
+    formCheckboxes: false,
+  });
   let location = useLocation();
 
   useEffect(() => {
@@ -36,7 +43,17 @@ export default function FormFile() {
           formAnim = el;
         }}
       >
-        <div></div>
+        <div>
+          {formStep.formName === true ? (
+            <FormName setFormStep={setFormStep} formStep={formStep} />
+          ) : null}
+          {formStep.formCheckboxes === true ? (
+            <FormCheckboxes setFormStep={setFormStep} formStep={formStep} />
+          ) : null}
+
+          <Route exact path="/getting-started/name" component={FormName} />
+          <Route path="/getting-started/needs" component={FormCheckboxes} />
+        </div>
       </div>
     </div>
   );
