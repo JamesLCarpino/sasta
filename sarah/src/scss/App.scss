@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~./Landing.scss";
+@import "~./FormPage.scss";
+body {
+  background: black;
+  height: 100vh;
+  margin: 0;
+}
+
+.register-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #f6ae2d;
+  display: flex;
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    color: #0a2e36;
+  }
+}

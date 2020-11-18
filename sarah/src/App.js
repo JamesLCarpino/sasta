@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.scss";
+import "./scss/App.scss";
 import LandingPage from "./components/common/LandingPage";
 import Register from "./components/auth/Register";
 import FormList from "./components/common/form/FormList";

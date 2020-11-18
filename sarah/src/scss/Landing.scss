@@ -1,11 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
-
-body {
-  background: black;
-  height: 100vh;
-  margin: 0;
-}
-
 .landing-container {
   display: flex;
   position: relative;
@@ -173,36 +165,5 @@ body {
       height: 100vh;
       border-radius: 0% 0% 50% 60%;
     }
-  }
-}
-.register-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  background-color: #f6ae2d;
-  display: flex;
-
-  h2 {
-    display: flex;
-    justify-content: center;
-    color: #0a2e36;
-  }
-}
-
-.form-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  background-color: #0a2e36;
-
-  .form-wall {
-    height: 100vh;
-    transform: skewX(41deg);
-    background-color: #f6ae2d;
-    width: 52%;
-    height: 100vh;
-  }
-  .actual-form {
-    position: relative;
   }
 }

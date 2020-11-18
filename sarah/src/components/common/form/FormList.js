@@ -15,10 +15,10 @@ export default function FormFile() {
       ease: Power3.easeOut,
       delay: 0.05,
     });
-    TweenMax.from(moveStripe, 1, {
+    TweenMax.from(moveStripe, 2, {
       opacity: 0,
       x: 2000,
-      y: -2000,
+      y: 900,
       ease: Power3.easeInOut,
     });
   });
