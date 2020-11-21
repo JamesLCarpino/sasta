@@ -28,7 +28,7 @@ export default function FormFile() {
       y: 900,
       ease: Power3.easeInOut,
     });
-  });
+  }, []);
   return (
     <div className="form-container">
       <div
@@ -46,10 +46,9 @@ export default function FormFile() {
         <div>
           {formStep.formName === true ? (
             <FormName setFormStep={setFormStep} formStep={formStep} />
-          ) : null}
-          {formStep.formCheckboxes === true ? (
-            <FormCheckboxes setFormStep={setFormStep} formStep={formStep} />
-          ) : null}
+          ) : (
+            <>{formStep.formCheckboxes === true ? <FormCheckboxes /> : null}</>
+          )}
 
           <Route exact path="/getting-started/name" component={FormName} />
           <Route path="/getting-started/needs" component={FormCheckboxes} />

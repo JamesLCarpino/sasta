@@ -10,15 +10,16 @@ export default function FormName({ setFormStep, formStep }) {
   const { handleSubmit, errors, register } = useForm({
     defaultValues: state.details,
   });
+  console.log("finding out where state is", state);
   const { push } = useHistory();
   const onSubmit = (data) => {
     action(data);
     // push("/getting-started/needs");
     setFormStep({
-      formName: false,
       formCheckboxes: true,
     });
     console.log(formStep);
+    console.log("data", data);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

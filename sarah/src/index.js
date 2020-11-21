@@ -12,7 +12,16 @@ createStore({
     name: "",
     email: "",
     location: "",
-    needs: [],
+    needs: {
+      bottoms: [],
+      tops: [],
+      coats_jackets: [],
+      dresses_jumpsuits: [],
+      footwear: [],
+      accessories: [],
+      by_outfit: [],
+      color_sub: "",
+    },
     image: null,
     comments: "",
     material: "",
@@ -31,9 +40,9 @@ createStore({
       tie_dye_color: false,
       tie_dye_bleach: false,
     },
+    addition: "",
+    cuttingHemming: "",
   },
-  addition: "",
-  cuttingHemming: "",
 });
 
 ReactDOM.render(
