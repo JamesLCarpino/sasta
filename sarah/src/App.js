@@ -10,24 +10,34 @@ const routes = [
     path: "/",
     name: "Landing",
     Component: LandingPage,
+    show: null,
   },
-  { path: "/register", name: "Register", Component: Register },
-  { path: "/getting-started", name: "FormList", Component: FormList },
+  { path: "/register", name: "Register", Component: Register, show: null },
+  {
+    path: "/getting-started",
+    name: "FormList",
+    Component: FormList,
+    show: null,
+  },
 ];
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="App">
-      {routes.map(({ path, Component }) => (
-        <Route key="name" path={path} exact>
-          <Component />
+      {/* {routes.map(({ path, show, Component }) => (
+        <Route key="name" path={path} exact >
+          {({ match }) => <Component  />}
         </Route>
-      ))}
+      ))} */}
 
-      {/* <Route path="/">
-        <LandingPage />
+      <Route exact path="/">
+        {({ match }) => <LandingPage show={match !== null} />}
       </Route>
-      <LandingPage /> */}
+      <Route exact path="/getting-started">
+        {({ match }) => <FormList show={match !== null} />}
+      </Route>
+      {/* <LandingPage /> */}
     </div>
   );
 }

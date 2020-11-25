@@ -4,8 +4,10 @@ import { TweenMax, Power3 } from "gsap";
 import { useStateMachine, createStore } from "little-state-machine";
 import FormCheckboxes from "./FormCheckboxes";
 import FormName from "./FormName";
-
-export default function FormFile() {
+import { Transition } from "react-transition-group";
+const startState = { autoAlpha: 0, y: 0 };
+export default function FormFile(props) {
+  //
   let { formAnim, moveStripe } = useRef();
   const [formStep, setFormStep] = useState({
     formName: true,
@@ -28,32 +30,52 @@ export default function FormFile() {
       y: 900,
       ease: Power3.easeInOut,
     });
-  }, []);
+  }, [formAnim, moveStripe]);
   return (
-    <div className="form-container">
-      <div
-        className="form-wall"
-        ref={(el) => {
-          moveStripe = el;
-        }}
-      ></div>
-      <div
-        className="actual-form"
-        ref={(el) => {
-          formAnim = el;
-        }}
-      >
-        <div>
-          {formStep.formName === true ? (
-            <FormName setFormStep={setFormStep} formStep={formStep} />
-          ) : (
-            <>{formStep.formCheckboxes === true ? <FormCheckboxes /> : null}</>
-          )}
+    <Transition
+      unmountOnExit
+      in={props.show}
+      timeout={0}
+      onEnter={(node) => TweenMax.set(node, startState)}
+      addEndListener={(node, done) => {
+        TweenMax.to(node, 1.5, {
+          autoAlpha: props.show ? 1 : 0,
+          y: props.show ? 0 : 50,
+          onComplete: done,
+        });
+      }}
+    >
+      <div className="form-container">
+        <div
+          className="form-wall"
+          ref={(el) => {
+            moveStripe = el;
+          }}
+        ></div>
+        <div
+          className="actual-form"
+          ref={(el) => {
+            formAnim = el;
+          }}
+        >
+          <div>
+            {formStep.formName === true ? (
+              <FormName setFormStep={setFormStep} formStep={formStep} />
+            ) : (
+              <>
+                {formStep.formCheckboxes === true ? <FormCheckboxes /> : null}
+              </>
+            )}
 
-          <Route exact path="/getting-started/name" component={FormName} />
-          <Route path="/getting-started/needs" component={FormCheckboxes} />
+            <Route exact path="/getting-started/name" component={FormName} />
+            <Route
+              exact
+              path="/getting-started/needs"
+              component={FormCheckboxes}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
   );
 }
