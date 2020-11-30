@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useLocation, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { TweenMax, Power3 } from "gsap";
-import { useStateMachine, createStore } from "little-state-machine";
+//import { useStateMachine, createStore } from "little-state-machine";
 import FormCheckboxes from "./FormCheckboxes";
 import FormName from "./FormName";
 
@@ -13,7 +13,6 @@ export default function FormFile(props) {
     formName: true,
     formCheckboxes: false,
   });
-  let location = useLocation();
 
   useEffect(() => {
     TweenMax.from(formAnim, 5, {
@@ -32,19 +31,6 @@ export default function FormFile(props) {
     });
   }, [formAnim, moveStripe]);
   return (
-    // <Transition
-    //   unmountOnExit
-    //   in={props.show}
-    //   timeout={0}
-    //   onEnter={(node) => TweenMax.set(node, startState)}
-    //   addEndListener={(node, done) => {
-    //     TweenMax.to(node, 1.5, {
-    //       autoAlpha: props.show ? 1 : 0,
-    //       y: props.show ? 0 : 50,
-    //       onComplete: done,
-    //     });
-    //   }}
-    // >
     <div className="form-container">
       <div
         className="form-wall"
@@ -66,14 +52,13 @@ export default function FormFile(props) {
           )}
 
           <Route exact path="/getting-started/name" component={FormName} />
-          <Route
+          {/* <Route
             exact
             path="/getting-started/needs"
             component={FormCheckboxes}
-          />
+          /> */}
         </div>
       </div>
     </div>
-    //</Transition>
   );
 }

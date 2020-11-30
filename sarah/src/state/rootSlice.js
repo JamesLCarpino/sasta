@@ -116,7 +116,7 @@ const rootSlice = createSlice({
     },
   },
 });
-export const reducder = rootSlice.reducer;
+export const reducer = rootSlice.reducer;
 
 export const {
   enterName,

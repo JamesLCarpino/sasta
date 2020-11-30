@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { applyMiddleware, createStore } from "redux";
+//import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
@@ -14,7 +14,7 @@ import { store } from "./state/store";
 // Import reducer/index.js as root reducer, it's where we're combining all our reducer files
 // import rootReducer from "./state";
 
-let middleware = [thunk, logger];
+//let middleware = [thunk, logger];
 // if (process.env.NODE_ENV === 'development') {
 //   middleware = [...middleware, thunk, logger];
 // } else {

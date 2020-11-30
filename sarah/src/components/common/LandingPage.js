@@ -69,84 +69,84 @@ export default function LandingPage(props) {
     });
   }, []);
   return (
-    <Transition
-      unmountOnExit
-      in={props.show}
-      timeout={0}
-      onExit={(node) => TweenMax.set(node, startState)}
-      addEndListener={(node, done) => {
-        TweenMax.to(node, 0.75, {
-          autoAlpha: props.show ? 1 : 0,
-          y: props.show ? 0 : 50,
-          onComplete: done,
-        });
-      }}
-    >
-      <div className="landing-container">
-        <div className="landing-wrapper-1">
-          <div
-            className="wall"
-            ref={(el) => {
-              wallOneMove = el;
-            }}
-          ></div>
-        </div>
+    // <Transition
+    //   unmountOnExit
+    //   in={props.show}
+    //   timeout={0}
+    //   onExit={(node) => TweenMax.set(node, startState)}
+    //   addEndListener={(node, done) => {
+    //     TweenMax.to(node, 0.75, {
+    //       autoAlpha: props.show ? 1 : 0,
+    //       y: props.show ? 0 : 50,
+    //       onComplete: done,
+    //     });
+    //   }}
+    // >
+    <div className="landing-container">
+      <div className="landing-wrapper-1">
+        <div
+          className="wall"
+          ref={(el) => {
+            wallOneMove = el;
+          }}
+        ></div>
+      </div>
 
-        <div className="landing-wrapper-2">
-          <div
-            className="wall2"
+      <div className="landing-wrapper-2">
+        <div
+          className="wall2"
+          ref={(el) => {
+            wallTwoMove = el;
+          }}
+        ></div>
+      </div>
+      <div className="title-wrapper">
+        <h1
+          ref={(el) => {
+            titleFadeUp = el;
+          }}
+        >
+          SÁSTA
+        </h1>
+        <p
+          className="tagLine"
+          ref={(el) => {
+            tagLine = el;
+          }}
+        >
+          Your next look starts with local creatives.
+        </p>
+        <div className="btn-wrapper">
+          <button
+            onClick={getStarted}
+            className="btn draw-border"
             ref={(el) => {
-              wallTwoMove = el;
-            }}
-          ></div>
-        </div>
-        <div className="title-wrapper">
-          <h1
-            ref={(el) => {
-              titleFadeUp = el;
+              buttonOneIn = el;
             }}
           >
-            SÁSTA
-          </h1>
-          <p
-            className="tagLine"
+            Let's Get Started
+          </button>
+          <button
+            onClick={showRegistration}
+            className="btn draw-border-two"
             ref={(el) => {
-              tagLine = el;
+              buttonTwoIn = el;
             }}
           >
-            Your next look starts with local creatives.
-          </p>
-          <div className="btn-wrapper">
-            <button
-              onClick={getStarted}
-              className="btn draw-border"
-              ref={(el) => {
-                buttonOneIn = el;
-              }}
-            >
-              Let's Get Started
-            </button>
-            <button
-              onClick={showRegistration}
-              className="btn draw-border-two"
-              ref={(el) => {
-                buttonTwoIn = el;
-              }}
-            >
-              Register
-            </button>
-            <Modal
-              show={show}
-              onHide={onHide}
-              size="lg"
-              //aria-labelledby="contained-modal-title-vcenter"
-              centered
-            >
-              <Register></Register>
-            </Modal>
-          </div>
+            Register
+          </button>
+          <Modal
+            show={show}
+            onHide={onHide}
+            size="lg"
+            //aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Register></Register>
+          </Modal>
         </div>
       </div>
-    </Transition>
+    </div>
+    // </Transition>
   );
 }

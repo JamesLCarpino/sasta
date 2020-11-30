@@ -3,12 +3,7 @@ import "./scss/App.scss";
 import LandingPage from "./components/common/LandingPage";
 import Register from "./components/auth/Register";
 import FormList from "./components/common/form/FormList";
-import { Route, Switch } from "react-router-dom";
-import {
-  Transition,
-  TransitionGroup,
-  CSSTransition,
-} from "react-transition-group";
+import { Route } from "react-router-dom";
 
 const routes = [
   {
@@ -30,20 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* {routes.map(({ path, show, Component }) => (
+      {routes.map(({ path, Component }) => (
         <Route key="name" path={path} exact>
-          {({ match }) => <Component />}
+          <Component />
         </Route>
-      ))} */}
-
-      <Route exact path="/">
-        {({ match }) => <LandingPage show={match !== null} />}
-      </Route>
-      <Route exact path="/getting-started">
-        {({ match }) => <FormList show={match !== null} />}
-      </Route>
-
-      {/* <LandingPage /> */}
+      ))}
     </div>
   );
 }
