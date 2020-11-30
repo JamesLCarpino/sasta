@@ -10,7 +10,7 @@ export default function FormCheckboxes(setFormStep) {
   });
 
   const onSubmit = (data) => {
-    action(data);
+    //action(data);
     // setFormStep({
     //   formCheckboxes: false,
     // });
@@ -20,7 +20,7 @@ export default function FormCheckboxes(setFormStep) {
 
   const inputValue = (data) => {
     action(data.target.checked);
-    console.log("cadat check ", data.target.checked);
+    console.log("cadat check ", data.target.value);
   };
   return (
     <div>
@@ -31,9 +31,8 @@ export default function FormCheckboxes(setFormStep) {
           <input
             name="bottoms"
             type="checkbox"
-            checked={state.details.needs.bottoms}
             onChange={inputValue}
-            //ref={{ required: "Please choose 1" }}
+            value="bottoms"
           />
         </label>
         <button type="submit">submit</button>
