@@ -4,7 +4,8 @@ import { TweenMax, Power3 } from "gsap";
 import Modal from "react-bootstrap/Modal";
 import { Transition } from "react-transition-group";
 
-import Register from "../auth/Register";
+// import Register from "../auth/Register";
+import About from "../common/About";
 const startState = { autoAlpha: 0, y: 0 };
 export default function LandingPage(props) {
   const [show, setShow] = useState(false);
@@ -27,7 +28,7 @@ export default function LandingPage(props) {
   };
 
   let getStarted = () => {
-    history.push("/getting-started");
+    history.push("/register");
   };
 
   useEffect(() => {
@@ -69,19 +70,6 @@ export default function LandingPage(props) {
     });
   }, []);
   return (
-    // <Transition
-    //   unmountOnExit
-    //   in={props.show}
-    //   timeout={0}
-    //   onExit={(node) => TweenMax.set(node, startState)}
-    //   addEndListener={(node, done) => {
-    //     TweenMax.to(node, 0.75, {
-    //       autoAlpha: props.show ? 1 : 0,
-    //       y: props.show ? 0 : 50,
-    //       onComplete: done,
-    //     });
-    //   }}
-    // >
     <div className="landing-container">
       <div className="landing-wrapper-1">
         <div
@@ -133,20 +121,14 @@ export default function LandingPage(props) {
               buttonTwoIn = el;
             }}
           >
-            Register
+            Learn More
           </button>
-          <Modal
-            show={show}
-            onHide={onHide}
-            size="lg"
-            //aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Register></Register>
+
+          <Modal show={show} onHide={onHide} size="lg" centered>
+            <About></About>
           </Modal>
         </div>
       </div>
     </div>
-    // </Transition>
   );
 }

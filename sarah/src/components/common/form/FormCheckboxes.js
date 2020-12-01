@@ -1,22 +1,22 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import updateAction from "./updateAction";
+//import { useHistory } from "react-router-dom";
 import {
   enterBottomNeeds,
-  enterTopNeeds,
-  enterFootwareNeeds,
-  enterAccessoriesNeeds,
-  enterCoats_JacketsNeeds,
-  enterDresses_JumpSuitsNeeds,
-  enterColorSubNeeds,
-  enterByOutfitNeeds,
+
+  // enterTopNeeds,
+  // enterFootwareNeeds,
+  // enterAccessoriesNeeds,
+  // enterCoats_JacketsNeeds,
+  // enterDresses_JumpSuitsNeeds,
+  // enterColorSubNeeds,
+  // enterByOutfitNeeds,
 } from "../../../state/rootSlice";
 
 export default function FormCheckboxes(setFormStep) {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   //all checkbox fields
   const bottoms = useSelector((state) => state.needs.bottoms);
   const tops = useSelector((state) => state.needs.tops);
@@ -44,11 +44,14 @@ export default function FormCheckboxes(setFormStep) {
   console.log("finding out what state is from checkbox", bottoms);
 
   const onSubmit = (data) => {
+    // if (([data.target.value] : data.bottoms.checked) === true) {
+
+    // }
     dispatch(enterBottomNeeds(data.bottoms));
-    console.log("Checkboxes", data.bottoms);
+    console.log("Checkboxes", data.bottoms.checked);
   };
+
   const inputChange = (e) => {
-    e.persist();
     dispatch(enterBottomNeeds(e.target.value));
     console.log("input", e.target.value);
   };
@@ -66,6 +69,7 @@ export default function FormCheckboxes(setFormStep) {
             type="checkbox"
             value="jeans"
             onChange={inputChange}
+            ref={register()}
           />
           Pants/Trousers
           <input
@@ -73,13 +77,17 @@ export default function FormCheckboxes(setFormStep) {
             type="checkbox"
             value="pants/trousers"
             onChange={inputChange}
+            ref={register()}
           />
           Leggings
           <input
             name="bottoms"
             type="checkbox"
             value="leggings"
-            onChange={inputChange}
+            onChange={(e, data) => {
+              inputChange(data);
+            }}
+            ref={register()}
           />
         </label>
         <button type="submit">submit</button>

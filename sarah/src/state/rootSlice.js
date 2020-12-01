@@ -7,7 +7,7 @@ const rootSlice = createSlice({
     email: "",
     location: "",
     needs: {
-      bottoms: {},
+      bottoms: [],
       tops: [],
       coats_jackets: [],
       dresses_jumpsuits: [],
@@ -49,7 +49,7 @@ const rootSlice = createSlice({
       state.location = action.payload;
     },
     enterBottomNeeds: (state, action) => {
-      state.needs.bottoms = action.payload;
+      state.needs.bottoms = [action.payload];
     },
     enterTopNeeds: (state, action) => {
       state.needs.tops = action.payload;

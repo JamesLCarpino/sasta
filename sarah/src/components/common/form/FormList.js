@@ -8,42 +8,17 @@ import FormName from "./FormName";
 const startState = { autoAlpha: 0, y: 0 };
 export default function FormFile(props) {
   //
-  let { formAnim, moveStripe } = useRef();
+
   const [formStep, setFormStep] = useState({
     formName: true,
     formCheckboxes: false,
   });
 
-  useEffect(() => {
-    TweenMax.from(formAnim, 5, {
-      opacity: 1,
-      y: -1500,
-
-      //x: 1500,
-      ease: Power3.easeOut,
-      delay: 0.05,
-    });
-    TweenMax.from(moveStripe, 2, {
-      opacity: 0,
-      x: 2000,
-      y: 900,
-      ease: Power3.easeInOut,
-    });
-  }, [formAnim, moveStripe]);
+  useEffect(() => {});
   return (
     <div className="form-container">
-      <div
-        className="form-wall"
-        ref={(el) => {
-          moveStripe = el;
-        }}
-      ></div>
-      <div
-        className="actual-form"
-        ref={(el) => {
-          formAnim = el;
-        }}
-      >
+      <div className="form-wall"></div>
+      <div className="actual-form">
         <div>
           {formStep.formName === true ? (
             <FormName setFormStep={setFormStep} formStep={formStep} />
@@ -52,11 +27,6 @@ export default function FormFile(props) {
           )}
 
           <Route exact path="/getting-started/name" component={FormName} />
-          {/* <Route
-            exact
-            path="/getting-started/needs"
-            component={FormCheckboxes}
-          /> */}
         </div>
       </div>
     </div>

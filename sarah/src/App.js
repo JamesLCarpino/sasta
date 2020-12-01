@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import "./scss/App.scss";
 import LandingPage from "./components/common/LandingPage";
 import Register from "./components/auth/Register";
@@ -10,18 +10,16 @@ const routes = [
     path: "/",
     name: "Landing",
     Component: LandingPage,
-    show: null,
   },
-  { path: "/register", name: "Register", Component: Register, show: null },
+  { path: "/register", name: "Register", Component: Register },
   {
     path: "/getting-started",
     name: "FormList",
     Component: FormList,
-    show: null,
   },
 ];
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  //const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="App">

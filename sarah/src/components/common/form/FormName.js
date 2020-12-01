@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import updateAction from "./updateAction";
+
 import { enterName, enterEmail } from "../../../state/rootSlice";
 
 export default function FormName({ setFormStep, formStep }) {
@@ -22,6 +22,7 @@ export default function FormName({ setFormStep, formStep }) {
     setFormStep({
       formCheckboxes: true,
     });
+    console.log(data);
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
