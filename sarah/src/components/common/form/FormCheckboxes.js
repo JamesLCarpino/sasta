@@ -47,15 +47,40 @@ export default function FormCheckboxes(setFormStep) {
     dispatch(enterBottomNeeds(data.bottoms));
     console.log("Checkboxes", data.bottoms);
   };
-
+  const inputChange = (e) => {
+    e.persist();
+    dispatch(enterBottomNeeds(e.target.value));
+    console.log("input", e.target.value);
+  };
   //
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Select your needs!</h2>
-        <label>
-          <input name="shorts" type="checkbox" value="shorts" />
+        <h4>Bottoms:</h4>
+        <label htmlFor="bottoms">
+          Jeans
+          <input
+            name="bottoms"
+            type="checkbox"
+            value="jeans"
+            onChange={inputChange}
+          />
+          Pants/Trousers
+          <input
+            name="bottoms"
+            type="checkbox"
+            value="pants/trousers"
+            onChange={inputChange}
+          />
+          Leggings
+          <input
+            name="bottoms"
+            type="checkbox"
+            value="leggings"
+            onChange={inputChange}
+          />
         </label>
         <button type="submit">submit</button>
       </form>

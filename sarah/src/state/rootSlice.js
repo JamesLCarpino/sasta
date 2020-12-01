@@ -7,7 +7,7 @@ const rootSlice = createSlice({
     email: "",
     location: "",
     needs: {
-      bottoms: [],
+      bottoms: {},
       tops: [],
       coats_jackets: [],
       dresses_jumpsuits: [],
