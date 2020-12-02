@@ -38,6 +38,7 @@ const rootSlice = createSlice({
     cuttingHemming: "",
     loading: false,
   },
+
   reducers: {
     enterName: (state, action) => {
       state.name = action.payload;
@@ -48,29 +49,8 @@ const rootSlice = createSlice({
     enterLoaction: (state, action) => {
       state.location = action.payload;
     },
-    enterBottomNeeds: (state, action) => {
-      state.needs.bottoms = [action.payload];
-    },
-    enterTopNeeds: (state, action) => {
-      state.needs.tops = action.payload;
-    },
-    enterCoats_JacketsNeeds: (state, action) => {
-      state.needs.coats_jackets = action.payload;
-    },
-    enterDresses_JumpSuitsNeeds: (state, action) => {
-      state.needs.dresses_jumpsuits = action.payload;
-    },
-    enterFootwareNeeds: (state, action) => {
-      state.needs.footwear = action.payload;
-    },
-    enterAccessoriesNeeds: (state, action) => {
-      state.needs.accessories = action.payload;
-    },
-    enterByOutfitNeeds: (state, action) => {
-      state.needs.by_outfit = action.payload;
-    },
-    enterColorSubNeeds: (state, action) => {
-      state.needs.color_sub = action.payload;
+    enterNeeds: (state, action) => {
+      state.needs = action.payload;
     },
     enterComments: (state, action) => {
       state.comments = action.payload;
@@ -81,24 +61,27 @@ const rootSlice = createSlice({
     enterCareInfo: (state, action) => {
       state.care_info = action.payload;
     },
+    enterMeasurements: (state, action) => {
+      state.measurements = action.payload;
+    },
     enterMeasurementBust: (state, action) => {
       state.measurements.bust = action.payload;
     },
-    enterMeasurementWaist: (state, action) => {
-      state.measurements.waist = action.payload;
-    },
-    enterMeasurementFullHip: (state, action) => {
-      state.measurements.full_hip = action.payload;
-    },
-    enterMeasurementShoulder: (state, action) => {
-      state.measurements.shoulder = action.payload;
-    },
-    enterMeasurementInseam: (state, action) => {
-      state.measurements.inseam = action.payload;
-    },
-    enterMeasurementOutseam: (state, action) => {
-      state.measurements.outseam = action.payload;
-    },
+    // enterMeasurementWaist: (state, action) => {
+    //   state.measurements.waist = action.payload;
+    // },
+    // enterMeasurementFullHip: (state, action) => {
+    //   state.measurements.full_hip = action.payload;
+    // },
+    // enterMeasurementShoulder: (state, action) => {
+    //   state.measurements.shoulder = action.payload;
+    // },
+    // enterMeasurementInseam: (state, action) => {
+    //   state.measurements.inseam = action.payload;
+    // },
+    // enterMeasurementOutseam: (state, action) => {
+    //   state.measurements.outseam = action.payload;
+    // },
     enterDyingRestore: (state, action) => {
       state.dying.restore = action.payload;
     },
@@ -121,25 +104,27 @@ export const reducer = rootSlice.reducer;
 export const {
   enterName,
   enterEmail,
-  enterBottomNeeds,
-  enterTopNeeds,
-  enterCoats_JacketsNeeds,
-  enterDresses_JumpSuitsNeeds,
-  enterFootwareNeeds,
-  enterAccessoriesNeeds,
-  enterByOutfitNeeds,
-  enterColorSubNeeds,
-  enterComments,
-  enterMaterial,
-  enterCareInfo,
-  enterMeasurementBust,
-  enterMeasurementFullHip,
-  enterMeasurementInseam,
-  enterMeasurementOutseam,
-  enterMeasurementShoulder,
+  //   enterBottomNeeds,
+  //   enterTopNeeds,
+  //   enterCoats_JacketsNeeds,
+  //   enterDresses_JumpSuitsNeeds,
+  //   enterFootwareNeeds,
+  //   enterAccessoriesNeeds,
+  //   enterByOutfitNeeds,
+  //   enterColorSubNeeds,
+  //   enterComments,
+  //   enterMaterial,
+  //   enterCareInfo,
+  enterMeasurement,
+  //   enterMeasurementBust,
+  //   enterMeasurementFullHip,
+  //   enterMeasurementInseam,
+  //   enterMeasurementOutseam,
+  //   enterMeasurementShoulder,
   enterDyingRestore,
   enterDyingTDBleach,
   enterDyingTDColor,
   enterAddition,
   enterCuttingHem,
+  enterNeeds,
 } = rootSlice.actions;

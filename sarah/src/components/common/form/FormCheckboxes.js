@@ -1,22 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-//import { useHistory } from "react-router-dom";
-import {
-  enterBottomNeeds,
-
-  // enterTopNeeds,
-  // enterFootwareNeeds,
-  // enterAccessoriesNeeds,
-  // enterCoats_JacketsNeeds,
-  // enterDresses_JumpSuitsNeeds,
-  // enterColorSubNeeds,
-  // enterByOutfitNeeds,
-} from "../../../state/rootSlice";
+import { useHistory } from "react-router-dom";
+import { enterNeeds } from "../../../state/rootSlice";
 
 export default function FormCheckboxes(setFormStep) {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
   //all checkbox fields
   const bottoms = useSelector((state) => state.needs.bottoms);
   const tops = useSelector((state) => state.needs.tops);
@@ -41,18 +31,24 @@ export default function FormCheckboxes(setFormStep) {
       color_sub,
     },
   });
-  console.log("finding out what state is from checkbox", bottoms);
+  console.log(
+    "finding out what state is from checkbox",
+    "tops:",
+    tops,
+    "bottoms"
+    //bottoms
+  );
 
   const onSubmit = (data) => {
-    // if (([data.target.value] : data.bottoms.checked) === true) {
+    // dispatch(enterBottomNeeds(data));
+    dispatch(enterNeeds(data));
 
-    // }
-    dispatch(enterBottomNeeds(data.bottoms));
-    console.log("Checkboxes", data.bottoms.checked);
+    console.log(data);
+    history.push("/submission");
   };
 
   const inputChange = (e) => {
-    dispatch(enterBottomNeeds(e.target.value));
+    //dispatch(enterNeeds(e.target.value));
     console.log("input", e.target.value);
   };
   //
@@ -84,9 +80,34 @@ export default function FormCheckboxes(setFormStep) {
             name="bottoms"
             type="checkbox"
             value="leggings"
-            onChange={(e, data) => {
-              inputChange(data);
-            }}
+            onChange={inputChange}
+            ref={register()}
+          />
+        </label>
+        <h4>Tops:</h4>
+        <label htmlFor="bottoms">
+          T-Shirt
+          <input
+            name="tops"
+            type="checkbox"
+            value="t_shirt"
+            onChange={inputChange}
+            ref={register()}
+          />
+          Long Sleeve casual
+          <input
+            name="tops"
+            type="checkbox"
+            value="long_sleeve_casual"
+            onChange={inputChange}
+            ref={register()}
+          />
+          Leggings
+          <input
+            name="tops"
+            type="checkbox"
+            value="tee_shirt"
+            onChange={inputChange}
             ref={register()}
           />
         </label>

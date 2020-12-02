@@ -3,6 +3,7 @@ import "./scss/App.scss";
 import LandingPage from "./components/common/LandingPage";
 import Register from "./components/auth/Register";
 import FormList from "./components/common/form/FormList";
+import Submission from "./components/common/form/Submission";
 import { Route } from "react-router-dom";
 
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
     path: "/getting-started",
     name: "FormList",
     Component: FormList,
+  },
+  {
+    path: "/submission",
+    name: "Submission",
+    Component: Submission,
   },
 ];
 function App() {
