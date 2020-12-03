@@ -116,7 +116,7 @@ export default function LandingPage(props) {
               buttonOneIn = el;
             }}
           >
-            Let's Get Started
+            Get Started
           </button>
           <button
             onClick={showRegistration}
