@@ -2,16 +2,22 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: space-evenly;
   background-color: #0a2e36;
 
   .form-wall {
     height: 100vh;
-    transform: skewX(41deg);
+    transform: skewX(42deg);
     background-color: #f6ae2d;
-    width: 52%;
-    height: 100vh;
+    width: 50%;
+    margin-right: 87%;
+    position: absolute;
   }
   .actual-form {
+    margin: 16%;
+    display: flex;
+    justify-content: center;
     position: relative;
   }
 }

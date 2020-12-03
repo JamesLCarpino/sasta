@@ -6,9 +6,13 @@ import { Transition } from "react-transition-group";
 
 // import Register from "../auth/Register";
 import About from "../common/About";
-const startState = { autoAlpha: 0, y: 0 };
+//this is for setting the beginning of the react-transition-group position to fade in and out of pages.
+//const startState = { autoAlpha: 0, y: 0 };
 export default function LandingPage(props) {
+  //shows the modal
   const [show, setShow] = useState(false);
+
+  //collection to animate the home page, each pice is moved with TweenMax in useEffect -> going to update to be handled with TimeLine
   let {
     wallOneMove,
     wallTwoMove,

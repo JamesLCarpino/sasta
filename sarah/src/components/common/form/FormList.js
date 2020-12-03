@@ -1,11 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
-import { TweenMax, Power3 } from "gsap";
-//import { useStateMachine, createStore } from "little-state-machine";
 import FormCheckboxes from "./FormCheckboxes";
 import FormName from "./FormName";
 
-const startState = { autoAlpha: 0, y: 0 };
 export default function FormFile(props) {
   //
 
@@ -14,11 +11,11 @@ export default function FormFile(props) {
     formCheckboxes: false,
   });
 
-  useEffect(() => {});
   return (
     <div className="form-container">
       <div className="form-wall"></div>
       <div className="actual-form">
+        {/* is there a better way to toggle between these stages? there's going to be a lot of pages. */}
         <div>
           {formStep.formName === true ? (
             <FormName setFormStep={setFormStep} formStep={formStep} />
