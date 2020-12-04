@@ -32,7 +32,7 @@ export default function LandingPage(props) {
   };
 
   let getStarted = () => {
-    history.push("/register");
+    history.push("/getting-started");
   };
 
   useEffect(() => {

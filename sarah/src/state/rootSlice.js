@@ -5,7 +5,12 @@ const rootSlice = createSlice({
   initialState: {
     name: "",
     email: "",
-    location: "",
+    location: {
+      city: "",
+      state: "",
+      zip_code: null,
+      country: "",
+    },
     needs: {
       bottoms: [],
       tops: [],
@@ -46,7 +51,7 @@ const rootSlice = createSlice({
     enterEmail: (state, action) => {
       state.email = action.payload;
     },
-    enterLoaction: (state, action) => {
+    enterLocation: (state, action) => {
       state.location = action.payload;
     },
     enterNeeds: (state, action) => {
@@ -67,21 +72,6 @@ const rootSlice = createSlice({
     enterMeasurementBust: (state, action) => {
       state.measurements.bust = action.payload;
     },
-    // enterMeasurementWaist: (state, action) => {
-    //   state.measurements.waist = action.payload;
-    // },
-    // enterMeasurementFullHip: (state, action) => {
-    //   state.measurements.full_hip = action.payload;
-    // },
-    // enterMeasurementShoulder: (state, action) => {
-    //   state.measurements.shoulder = action.payload;
-    // },
-    // enterMeasurementInseam: (state, action) => {
-    //   state.measurements.inseam = action.payload;
-    // },
-    // enterMeasurementOutseam: (state, action) => {
-    //   state.measurements.outseam = action.payload;
-    // },
     enterDyingRestore: (state, action) => {
       state.dying.restore = action.payload;
     },
@@ -104,23 +94,8 @@ export const reducer = rootSlice.reducer;
 export const {
   enterName,
   enterEmail,
-  //   enterBottomNeeds,
-  //   enterTopNeeds,
-  //   enterCoats_JacketsNeeds,
-  //   enterDresses_JumpSuitsNeeds,
-  //   enterFootwareNeeds,
-  //   enterAccessoriesNeeds,
-  //   enterByOutfitNeeds,
-  //   enterColorSubNeeds,
-  //   enterComments,
-  //   enterMaterial,
-  //   enterCareInfo,
+  enterLocation,
   enterMeasurement,
-  //   enterMeasurementBust,
-  //   enterMeasurementFullHip,
-  //   enterMeasurementInseam,
-  //   enterMeasurementOutseam,
-  //   enterMeasurementShoulder,
   enterDyingRestore,
   enterDyingTDBleach,
   enterDyingTDColor,
