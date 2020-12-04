@@ -7,8 +7,14 @@ export default function Submission() {
 
   return (
     <>
-      <pre style={{ color: "white" }}>{JSON.stringify(state, null, 2)}</pre>
       <Link to="/">Start over</Link>
+      <div style={{ textAlign: "center" }}>
+        <div>
+          <pre style={{ color: "white", height: "100vh" }}>
+            {JSON.stringify(state, null, 2)}
+          </pre>
+        </div>
+      </div>
     </>
   );
 }

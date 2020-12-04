@@ -31,9 +31,11 @@ export default function FormName({ setFormStep, formStep }) {
     dispatch(enterEmail(data.email));
 
     setFormStep({
-      formCheckboxes: true,
+      formLocation: true,
     });
+
     console.log(data);
+    // history.push("/getting-started/location");
   };
   return (
     <>
