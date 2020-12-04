@@ -16,12 +16,19 @@
   }
 
   .actual-form {
-    margin: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    opacity: 1;
+    background-color: #f5f0f623;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
   }
   h2 {
     color: #f5f0f6;

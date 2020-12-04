@@ -24,6 +24,12 @@ export default function FormLocation({ setFormStep }) {
     });
     console.log(data);
   };
+  const goBack = (e) => {
+    e.preventDefault();
+    setFormStep({
+      formName: true,
+    });
+  };
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,6 +58,7 @@ export default function FormLocation({ setFormStep }) {
         </label>
 
         <button type="submit">Next!</button>
+        <button onClick={goBack}>Go Back!</button>
       </form>
     </>
   );

@@ -5,14 +5,11 @@ import FormName from "./FormName";
 import FormLocation from "./FormLocation";
 
 export default function FormFile(props) {
-  //
-
   const [formStep, setFormStep] = useState({
     formName: true,
     formCheckboxes: false,
     formLocation: false,
   });
-  console.log(formStep, "Coming from fomrList");
 
   return (
     <div className="form-container">
@@ -30,13 +27,6 @@ export default function FormFile(props) {
           {formStep.formLocation === true ? (
             <FormLocation setFormStep={setFormStep} />
           ) : null}
-
-          {/* <Route
-            exact
-            path="/getting-started/location"
-            component={FormLocation}
-          />
-          <Route exact path="/getting-started/name" component={FormName} /> */}
         </div>
       </div>
     </div>
