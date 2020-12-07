@@ -74,65 +74,88 @@ export default function LandingPage(props) {
     });
   }, []);
   return (
-    <div className="landing-container">
-      <div className="landing-wrapper-1">
-        <div
-          className="wall"
-          ref={(el) => {
-            wallOneMove = el;
-          }}
-        ></div>
-      </div>
+    <>
+      <div className="landing-container">
+        <div className="landing-wrapper-1">
+          <div
+            className="wall"
+            ref={(el) => {
+              wallOneMove = el;
+            }}
+          ></div>
+        </div>
 
-      <div className="landing-wrapper-2">
+        <div className="landing-wrapper-2">
+          <div
+            className="wall2"
+            ref={(el) => {
+              wallTwoMove = el;
+            }}
+          ></div>
+        </div>
         <div
-          className="wall2"
-          ref={(el) => {
-            wallTwoMove = el;
-          }}
-        ></div>
-      </div>
-      <div className="title-wrapper">
-        <h1
-          ref={(el) => {
-            titleFadeUp = el;
+          style={{
+            position: "absolute",
+            width: "100%",
+            display: "flex",
+            justifyContent: "flex-end",
           }}
         >
-          SÁSTA
-        </h1>
-        <p
-          className="tagLine"
-          ref={(el) => {
-            tagLine = el;
-          }}
-        >
-          Your next look starts with local creatives.
-        </p>
-        <div className="btn-wrapper">
-          <button
-            onClick={getStarted}
-            className="btn draw-border"
-            ref={(el) => {
-              buttonOneIn = el;
-            }}
-          >
-            Get Started
-          </button>
-          <button
-            onClick={showRegistration}
-            className="btn draw-border-two"
-            ref={(el) => {
-              buttonTwoIn = el;
-            }}
-          >
-            Learn More
-          </button>
+          <nav
+            style={{
+              position: "absolute",
 
-          <Modal show={show} onHide={onHide} size="lg" centered>
-            <About></About>
-          </Modal>
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <h2>LOG IN</h2>
+            <h2>ABOUT</h2>
+            <h2>LEARN</h2>
+          </nav>
+        </div>
+        <div className="title-wrapper">
+          <h1
+            ref={(el) => {
+              titleFadeUp = el;
+            }}
+          >
+            SÁSTA
+          </h1>
+          <p
+            className="tagLine"
+            ref={(el) => {
+              tagLine = el;
+            }}
+          >
+            Your next look starts with local creatives.
+          </p>
+          <div className="btn-wrapper">
+            <button
+              onClick={getStarted}
+              className="btn draw-border"
+              ref={(el) => {
+                buttonOneIn = el;
+              }}
+            >
+              Get Started
+            </button>
+            <button
+              onClick={showRegistration}
+              className="btn draw-border-two"
+              ref={(el) => {
+                buttonTwoIn = el;
+              }}
+            >
+              Learn More
+            </button>
+
+            <Modal show={show} onHide={onHide} size="lg" centered>
+              <About></About>
+            </Modal>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

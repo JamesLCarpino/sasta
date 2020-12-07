@@ -44,49 +44,58 @@ export default function FormCheckboxes(setFormStep) {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Select your needs!</h2>
-        <h4>Bottoms:</h4>
-        <label htmlFor="bottoms">
-          Jeans
-          <input
-            name="bottoms"
-            type="checkbox"
-            value="jeans"
-            ref={register()}
-          />
-          Pants/Trousers
-          <input
-            name="bottoms"
-            type="checkbox"
-            value="pants/trousers"
-            ref={register()}
-          />
-          Leggings
-          <input
-            name="bottoms"
-            type="checkbox"
-            value="leggings"
-            ref={register()}
-          />
-        </label>
-        <h4>Tops:</h4>
-        <label htmlFor="bottoms">
-          T-Shirt
-          <input name="tops" type="checkbox" value="t_shirt" ref={register()} />
-          Long Sleeve casual
-          <input
-            name="tops"
-            type="checkbox"
-            value="long_sleeve_casual"
-            ref={register()}
-          />
-          Leggings
-          <input
-            name="tops"
-            type="checkbox"
-            value="tee_shirt"
-            ref={register()}
-          />
-        </label>
+        <div>
+          <h4>Bottoms:</h4>
+          <label htmlFor="bottoms">
+            Jeans
+            <input
+              name="bottoms"
+              type="checkbox"
+              value="jeans"
+              ref={register()}
+            />
+            Pants/Trousers
+            <input
+              name="bottoms"
+              type="checkbox"
+              value="pants/trousers"
+              ref={register()}
+            />
+            Leggings
+            <input
+              name="bottoms"
+              type="checkbox"
+              value="leggings"
+              ref={register()}
+            />
+          </label>
+        </div>
+        <div>
+          <h4>Tops:</h4>
+          <label htmlFor="bottoms">
+            T-Shirt
+            <input
+              name="tops"
+              type="checkbox"
+              value="t_shirt"
+              ref={register()}
+            />
+            Long Sleeve casual
+            <input
+              name="tops"
+              type="checkbox"
+              value="long_sleeve_casual"
+              ref={register()}
+            />
+            Leggings
+            <input
+              name="tops"
+              type="checkbox"
+              value="tee_shirt"
+              ref={register()}
+            />
+          </label>
+        </div>
         <button type="submit">submit</button>
       </form>
     </div>
